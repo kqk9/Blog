@@ -1,0 +1,27 @@
+<%- include("partials/header"); -%>
+<% if (massage) { %>
+  <div id="message-container">
+    <h2><%= massage %></h2>
+  </div>
+  <script>
+    setTimeout(function() {
+      $('#message-container').fadeOut('slow', function() {
+        $(this).remove();
+      });
+    }, 2000);
+  </script>
+<% } %>
+
+  <h1><%=title%></h1>
+  <p><%=content%></p>
+  
+  <form class="form-inline" action="/delete" method="post">
+    <div class="form-group">
+      <label for="inputPassword6">Password</label>
+      <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline"placeholder="Enter the password to delete the post" name="password">
+      <button type="submit" name="id" class="btn btn-danger"  value="<%=id%>"  >delete</button>
+    </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<%- include("partials/footer"); -%>
